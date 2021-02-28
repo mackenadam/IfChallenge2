@@ -9,9 +9,31 @@ namespace IfChallenge2
 {
     class Program
     {
+        static int highscore = 51;
+        static string highscorePlayer = "Adam";
+
         static void Main(string[] args)
         {
- 
+            Console.WriteLine("Please enter your name:");
+            string name = Console.ReadLine();
+            Console.WriteLine("Please enter your score:");
+            int score = int.Parse(Console.ReadLine());
+            CheckHighscore(score, name);
+        }
+
+        static public void CheckHighscore(int playerScore, string playerName)
+        {
+            if (playerScore > highscore)
+            {
+                highscore = playerScore;
+                highscorePlayer = playerName;
+                Console.WriteLine("New highscore is {0}", highscore);
+                Console.WriteLine("New highscore holder is {0}", highscorePlayer);
+            }
+            else
+            {
+                Console.WriteLine("The old highscore of {0} could not be beaten and is still held by {1}", highscore, highscorePlayer);
+            }
         }
     }
 }
